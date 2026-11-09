@@ -1,0 +1,386 @@
+
+@import "tailwindcss";
+
+/* =========================================
+   SHOPLYTICS GLOBAL THEME SYSTEM
+========================================= */
+
+:root {
+  font-family: Inter, system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color-scheme: dark;
+
+  /* Main backgrounds */
+  --app-bg: #080b16;
+  --sidebar-bg: #0b1020;
+  --topbar-bg: rgba(11, 16, 32, 0.95);
+
+  /* Cards and surfaces */
+  --surface: #11182a;
+  --surface-secondary: #151e32;
+  --surface-hover: #1c2740;
+  --input-bg: #080d1a;
+
+  /* Text */
+  --text-primary: #f1f2f9;
+  --text-secondary: #a4aec3;
+  --text-muted: #758199;
+
+  /* Borders */
+  --border-color: #263149;
+
+  /* Accent */
+  --accent: #7660e8;
+  --accent-soft: rgba(118, 96, 232, 0.14);
+
+  /* Special cards */
+  --insight-card-bg: linear-gradient(
+    135deg,
+    #211b43,
+    #151b31
+  );
+
+  /* Shadows */
+  --shadow-color: rgba(0, 0, 0, 0.2);
+
+  /* Chart colors */
+  --chart-grid: #263149;
+  --chart-text: #a4aec3;
+  --chart-tooltip-bg: #11182a;
+}
+
+/* =========================================
+   LIGHT THEME
+========================================= */
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --app-bg: #f4f6fb;
+  --sidebar-bg: #ffffff;
+  --topbar-bg: rgba(255, 255, 255, 0.95);
+
+  --surface: #ffffff;
+  --surface-secondary: #f0f2f8;
+  --surface-hover: #e8ebf4;
+  --input-bg: #ffffff;
+
+  --text-primary: #172033;
+  --text-secondary: #46536b;
+  --text-muted: #718096;
+
+  --border-color: #dce2ed;
+
+  --accent: #6952d5;
+  --accent-soft: rgba(105, 82, 213, 0.10);
+
+  --insight-card-bg: linear-gradient(
+    135deg,
+    #f1edff,
+    #e9edff
+  );
+
+  --shadow-color: rgba(31, 41, 55, 0.06);
+
+  --chart-grid: #e2e8f0;
+  --chart-text: #64748b;
+  --chart-tooltip-bg: #ffffff;
+}
+
+/* =========================================
+   GLOBAL BASE STYLES
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--app-bg);
+  transition: background-color 0.25s ease;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  font-family: Inter, system-ui, sans-serif;
+
+  color: var(--text-primary);
+  background: var(--app-bg);
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+#root {
+  min-height: 100vh;
+  background: var(--app-bg);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: #7660e8;
+  color: white;
+}
+
+/* =========================================
+   THEME TRANSITIONS
+========================================= */
+
+body,
+aside,
+main,
+header,
+section,
+article,
+nav,
+footer,
+input,
+select,
+textarea,
+table,
+button {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* =========================================
+   LIGHT THEME - BACKGROUND OVERRIDES
+========================================= */
+
+/* Slate backgrounds */
+
+:root[data-theme="light"] .bg-slate-950,
+:root[data-theme="light"] .bg-slate-950\/70,
+:root[data-theme="light"] .bg-slate-950\/80,
+:root[data-theme="light"] .bg-slate-900,
+:root[data-theme="light"] .bg-slate-900\/60,
+:root[data-theme="light"] .bg-slate-900\/70,
+:root[data-theme="light"] .bg-slate-900\/80 {
+  background-color: var(--surface) !important;
+}
+
+:root[data-theme="light"] .bg-slate-800,
+:root[data-theme="light"] .bg-slate-800\/50,
+:root[data-theme="light"] .bg-slate-800\/60,
+:root[data-theme="light"] .bg-slate-800\/70 {
+  background-color: var(--surface-secondary) !important;
+}
+
+/* Hardcoded Shoplytics dark backgrounds */
+
+:root[data-theme="light"] .bg-\[\#080B18\],
+:root[data-theme="light"] .bg-\[\#080b18\],
+:root[data-theme="light"] .bg-\[\#080b16\],
+:root[data-theme="light"] .bg-\[\#0B1020\],
+:root[data-theme="light"] .bg-\[\#0b1020\],
+:root[data-theme="light"] .bg-\[\#0B1020\]\/95,
+:root[data-theme="light"] .bg-\[\#121A2D\],
+:root[data-theme="light"] .bg-\[\#121A30\],
+:root[data-theme="light"] .bg-\[\#11182B\],
+:root[data-theme="light"] .bg-\[\#11182a\] {
+  background-color: var(--surface) !important;
+}
+
+:root[data-theme="light"] .bg-\[\#151E34\],
+:root[data-theme="light"] .bg-\[\#151e32\],
+:root[data-theme="light"] .bg-\[\#192139\],
+:root[data-theme="light"] .bg-\[\#202943\] {
+  background-color: var(--surface-secondary) !important;
+}
+
+/* =========================================
+   LIGHT THEME - TEXT OVERRIDES
+========================================= */
+
+:root[data-theme="light"] .text-white {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="light"] .text-slate-100,
+:root[data-theme="light"] .text-slate-200,
+:root[data-theme="light"] .text-slate-300 {
+  color: var(--text-secondary) !important;
+}
+
+:root[data-theme="light"] .text-slate-400,
+:root[data-theme="light"] .text-slate-500,
+:root[data-theme="light"] .text-slate-600 {
+  color: var(--text-muted) !important;
+}
+
+/* Hardcoded text colors */
+
+:root[data-theme="light"] .text-\[\#f1f2f9\] {
+  color: var(--text-primary) !important;
+}
+
+:root[data-theme="light"] .text-\[\#a4aec3\],
+:root[data-theme="light"] .text-\[\#94a3b8\] {
+  color: var(--text-secondary) !important;
+}
+
+/* =========================================
+   LIGHT THEME - BORDER OVERRIDES
+========================================= */
+
+:root[data-theme="light"] .border-slate-700,
+:root[data-theme="light"] .border-slate-800,
+:root[data-theme="light"] .border-slate-600 {
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="light"] .border-\[\#202943\],
+:root[data-theme="light"] .border-\[\#263149\],
+:root[data-theme="light"] .border-\[\#27324D\],
+:root[data-theme="light"] .border-\[\#293653\],
+:root[data-theme="light"] .border-\[\#29324A\],
+:root[data-theme="light"] .border-\[\#25314F\] {
+  border-color: var(--border-color) !important;
+}
+
+/* =========================================
+   INPUTS AND FORMS
+========================================= */
+
+:root[data-theme="light"] input:not([type="checkbox"]):not([type="radio"]),
+:root[data-theme="light"] select,
+:root[data-theme="light"] textarea {
+  background-color: var(--input-bg) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+:root[data-theme="light"] input::placeholder,
+:root[data-theme="light"] textarea::placeholder {
+  color: var(--text-muted) !important;
+}
+
+:root[data-theme="light"] select option {
+  background-color: #ffffff;
+  color: #172033;
+}
+
+/* =========================================
+   HOVER EFFECTS
+========================================= */
+
+:root[data-theme="light"] .hover\:bg-slate-800:hover,
+:root[data-theme="light"] .hover\:bg-slate-800\/70:hover,
+:root[data-theme="light"] .hover\:bg-slate-700:hover,
+:root[data-theme="light"] .hover\:bg-\[\#151E34\]:hover,
+:root[data-theme="light"] .hover\:bg-\[\#202943\]:hover {
+  background-color: var(--surface-hover) !important;
+}
+
+/* =========================================
+   VIOLET ACCENT PRESERVATION
+========================================= */
+
+:root[data-theme="light"] .text-violet-300 {
+  color: #6952d5 !important;
+}
+
+:root[data-theme="light"] .text-violet-400 {
+  color: #6047cc !important;
+}
+
+:root[data-theme="light"] .bg-violet-500\/10,
+:root[data-theme="light"] .bg-violet-500\/15 {
+  background-color: var(--accent-soft) !important;
+}
+
+/* =========================================
+   TABLES
+========================================= */
+
+table {
+  color: var(--text-primary);
+}
+
+th {
+  color: var(--text-secondary);
+}
+
+td {
+  color: var(--text-secondary);
+}
+
+:root[data-theme="light"] table {
+  background-color: var(--surface);
+}
+
+:root[data-theme="light"] th {
+  border-color: var(--border-color);
+}
+
+:root[data-theme="light"] td {
+  border-color: var(--border-color);
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-muted) var(--app-bg);
+}
+
+*::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--app-bg);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 20px;
+}
+
+/* =========================================
+   CHART TOOLTIP SUPPORT
+========================================= */
+
+.chart-tooltip {
+  background: var(--chart-tooltip-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 10px 14px;
+  box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+/* =========================================
+   RESPONSIVE FOUNDATION
+========================================= */
+
+@media (max-width: 768px) {
+  body {
+    min-width: 320px;
+  }
+}

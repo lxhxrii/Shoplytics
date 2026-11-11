@@ -1,8 +1,10 @@
 
 import React, { useMemo, useState } from "react";
+
 import {
   ResponsiveContainer,
   BarChart,
+  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -14,6 +16,7 @@ import {
   AreaChart,
   Area,
 } from "recharts";
+
 
 import {
   Users,
@@ -162,6 +165,7 @@ function ChartTooltip({ active, payload, label, formatter }) {
 }
 
 function Customers() {
+  
   const { data, columns, loading, error, hasData, fileName } = useDataset();
 
   const [segment, setSegment] = useState("All");
